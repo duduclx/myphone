@@ -1,0 +1,550 @@
+<script id="app_template" type="x-tmpl-mustache">
+  <div id="app" class="wrapper">
+    <header class="main-header">
+      <a href="#" class="logo">
+        <span class="logo-lg">
+          <img class="logo-full-svg" src="./img/wazo-text-bird-reverse.svg"></img>
+        </span>
+        <span class="logo-mini">
+          <img class="logo-bird-svg" src="./img/wazo-text-bird-reverse.svg"></img>
+        </span>
+      </a>
+
+      <nav class="navbar navbar-static-top">
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <li class="dropdown notifications-menu hidden" id="view-agent">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
+                <i class="fa fa-headphones" id="icon-agent"></i>
+                <span class="label" id="label-agent"></span>
+              </a>
+              <ul class="dropdown-menu" id="agent-menu">
+                <li>
+                  <ul class="menu" id="agent-action">
+                    <li id="loginagent">
+                      <a href="#" data-i18n="[append]app.agent.login">
+                        <i class="fa fa-circle-o text-green"></i>
+                      </a>
+                    </li>
+                    <li id="logoffagent">
+                      <a href="#" data-i18n="[append]app.agent.logoff">
+                        <i class="fa fa-circle-o text-red"></i>
+                      </a>
+                    </li>
+                    <li id="pauseagent">
+                      <a href="#" data-i18n="[append]app.agent.pause">
+                        <i class="fa fa-pause text-orange"></i>
+                      </a>
+                    </li>
+                    <li id="unpauseagent">
+                      <a href="#" data-i18n="[append]app.agent.unpause">
+                        <i class="fa fa-play"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown notifications-menu">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
+                <i class="fa fa-bell-o"></i>
+                <span class="label label-warning" id="notifications-count"></span>
+              </a>
+              <ul class="dropdown-menu" id="notifications-menu">
+                <li>
+                  <ul class="menu" id="notifications">
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown notifications-menu">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
+                <i class="fa fa-circle-thin"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <ul class="menu" id="changepresence">
+                    <li id="available">
+                      <a href="#" data-i18n="[append]app.presence.available">
+                        <i class="fa fa-user text-green"></i>
+                      </a>
+                    </li>
+                    <li id="donotdisturb">
+                      <a href="#" data-i18n="[append]app.presence.donotdisturb">
+                        <i class="fa fa-user text-red"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="img/user.jpg" class="user-image image-profile" alt="User Image">
+                <span class="hidden-xs" id="user"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="user-header">
+                  <img src="img/user.jpg" class="img-circle image-profile" alt="User Image">
+                  <p id="userprofile"></p>
+                </li>
+                <li class="user-body"></li>
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="http://wazo.community" class="btn btn-default btn-flat" data-i18n="app.profile.visit"></a>
+                  </div>
+                  <div class="pull-right" id="logout">
+                    <a href="#" class="btn btn-default btn-flat" data-i18n="app.profile.logout"></a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" data-toggle="control-sidebar">
+                <i class="fa fa-gears"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <aside class="main-sidebar">
+      <section class="sidebar">
+        <div class="user-panel">
+          <div class="pull-left image">
+            <img src="img/user.jpg" class="img-circle image-profile" alt="User Image">
+          </div>
+          <div class="pull-left info">
+            <p id="usersidebar"></p>
+            <a href="#" id="userpresence" class="text-capitalize"></a>
+          </div>
+        </div>
+        <form class="sidebar-form" action="#" id="formSearch">
+          <div class="input-group">
+            <input class="form-control" id="searchviainput" data-i18n="[placeholder]app.box.contacts.search" type="text">
+              <span class="input-group-btn">
+                <button id="search-btn" class="btn btn-flat" type="submit" name="search">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+          </div>
+        </form>
+        <ul class="sidebar-menu" id="favorites">
+          <li class="header" data-i18n="[prepend]app.user.myline"></li>
+          <li class="treeview active hidden" id="myline">
+            <a>
+              <i class="fa fa-user"></i>
+              <span id="myline_display"></span>
+            </a>
+            <ul id="activeline" class="treeview-menu menu-open" style="display: block;">
+            </ul>
+          </li>
+          <li class="header" data-i18n="app.user.favorites"></li>
+        </ul>
+      </section>
+    </aside>
+
+    <div class="content-wrapper">
+      <section class="content">
+
+        <div class="row">
+
+          <div class="col-lg-4">
+            <div class="box box-primary">
+              <div class="box-header">
+                <i class="fa fa-phone"></i>
+                <h3 class="box-title" data-i18n="app.box.calllogs.title"></h3>
+              </div>
+              <div class="box-body table-responsive no-padding" id="calllogs-box">
+                <table class="table table-hover" id="calllog">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th data-i18n="app.box.calllogs.clid"></th>
+                      <th data-i18n="app.box.calllogs.date"></th>
+                      <th data-i18n="app.box.calllogs.hour"></th>
+                      <th data-i18n="app.box.calllogs.duration"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="result-calllogs">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" id="phone">
+            <div id="media">
+              <audio id="remoteAudio"></audio>
+              <audio id="localAudio" muted="muted"></audio>
+              <div id="ring"></div>
+            </div>
+
+            <div id="phonestatus" class="box box-widget widget-user">
+              <div class="widget-user-header bg-light-blue">
+                <h3 class="widget-user-username" id="calluser"></h3>
+                <h5 class="widget-user-desc" id="callinfo"></h5>
+              </div>
+              <div class="widget-user-image">
+                <img class="img-circle image-profile" src="img/user.jpg" alt="User Avatar">
+              </div>
+              <div class="box-footer">
+                <div class="row">
+
+                  <div class="col-sm-12">
+                    <div class="description-block">
+                      <div id="phoneaction">
+                        <div class="btn-group hidden" id="dialpad">
+                          <button id="dtmf" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons btn btn-primary">dialpad</i>
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu dtmfdialer">
+                            <button type="button" class="btn btn-default digit" data-digit="1">1</button>
+                            <button type="button" class="btn btn-default digit" data-digit="2">2</button>
+                            <button type="button" class="btn btn-default digit" data-digit="3">3</button>
+                            <button type="button" class="btn btn-default digit" data-digit="4">4</button>
+                            <button type="button" class="btn btn-default digit" data-digit="5">5</button>
+                            <button type="button" class="btn btn-default digit" data-digit="6">6</button>
+                            <button type="button" class="btn btn-default digit" data-digit="7">7</button>
+                            <button type="button" class="btn btn-default digit" data-digit="8">8</button>
+                            <button type="button" class="btn btn-default digit" data-digit="9">9</button>
+                            <button type="button" class="btn btn-default digit" data-digit="*">*</button>
+                            <button type="button" class="btn btn-default digit" data-digit="0">0</button>
+                            <button type="button" class="btn btn-default digit" data-digit="#">#</button>
+                          </ul>
+                        </div>
+                      </div>
+                      <div id="phoneactionvolume"></div>
+                      <div id="phonecompose" class="row form-inline text-center">
+                        <div class="form-group col-sm-12" id="inputnumber">
+                          <input class="form-control" id="number" type="text" data-i18n="[placeholder]app.box.phone.enter_number" max="20">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="box box-primary">
+              <div class="box-header">
+                <i class="fa fa-users"></i>
+                <h3 class="box-title" data-i18n="app.box.contacts.title"></h3>
+                <div class="box-tools pull-right">
+                  <div class="input-group input-group-sm col-lg-8 pull-right">
+                    <input id="searchcontact" name="table_search" class="form-control pull-right" data-i18n="[placeholder]app.box.contacts.search" type="text" max="100" width="50%">
+                    <div class="input-group-btn">
+                      <button id="search" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                      <button id="clean-contact" class="btn btn-default"><i class="fa fa-eraser"></i></button>
+                      <button class="btn btn-default" data-toggle="modal" data-target="#view-add-contact"><i class="fa fa-plus"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-body table-responsive no-padding" id="contact-box">
+                <table class="table table-hover" id="contact">
+                  <thead>
+                    <tr>
+                      <th data-i18n="app.box.contacts.name"></th>
+                      <th data-i18n="app.box.contacts.number"></th>
+                      <th style="width: 80px" data-i18n="app.box.contacts.actions"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="result-contacts">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+        <div class="row">
+
+          <div id="chat" class="col-lg-4">
+            <div id="direct-chat"class="box box-primary direct-chat direct-chat-primary hidden">
+              <div class="box-header with-border">
+                <i class="fa fa-comments-o"></i>
+                <h3 class="box-title" data-i18n="app.box.direct_chat.title"></h3>
+                (<span data-i18n="app.box.direct_chat.talking_with"></span>
+                <span id="chat-alias"></span>)
+                <div class="box-tools pull-right">
+                  <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+              </div>
+              <div class="box-body">
+                <div class="direct-chat-messages"></div>
+              </div>
+
+              <div class="box-footer">
+                <div class="input-group">
+                  <input id="msgchat" type="text" name="message" data-i18n="[placeholder]app.box.direct_chat.type_message" class="form-control" max="250">
+                  <span class="input-group-btn">
+                    <button id="sendchat" type="button" class="btn btn-primary btn-flat" data-i18n="app.box.direct_chat.send"></button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div id="view-voicemails" class="box box-primary hidden">
+              <div class="box-header with-border">
+                <i class="fa fa-envelope"></i>
+                <h3 class="box-title" data-i18n="app.box.voicemails.title"></h3>
+              </div>
+              <div class="box-body">
+                <table class="table table-hover" id="voicemails">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th data-i18n="app.box.voicemails.date"></th>
+                      <th data-i18n="app.box.voicemails.time"></th>
+                      <th data-i18n="app.box.voicemails.clid"></th>
+                      <th data-i18n="app.box.voicemails.duration"></th>
+                      <th style="width: 100px" data-i18n="app.box.voicemails.actions"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="result-voicemails">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div id="view-funckeys" class="box box-primary">
+              <div class="box-header with-border">
+                <i class="fa fa-bars"></i>
+                <h3 class="box-title" data-i18n="app.box.fk.title"></h3>
+                <div class="pull-right box-tools">
+                  <button class="btn btn-box-tool" data-toggle="modal" data-target="#view-add-fk">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="box-body" id="view-fk-box">
+                <table class="table table-hover" id="funckeys">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th data-i18n="app.box.fk.key"></th>
+                      <th data-i18n="app.box.fk.type"></th>
+                      <th data-i18n="app.box.fk.destination"></th>
+                      <th data-i18n="app.box.fk.label"></th>
+                      <th data-i18n="app.box.fk.supervised"></th>
+                      <th style="width: 100px" data-i18n="app.box.fk.actions"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="result-funckeys">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal" id="view-add-fk">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">Ã—</span></button>
+                  <h4 class="modal-title" data-i18n="app.box.fk.add_fk"></h4>
+                </div>
+                <form method="post" id="formfk">
+                <div class="modal-body">
+                  <p data-i18n="app.box.fk.add_fk_note"></p>
+                  <table>
+                    <thead>
+                      <th data-i18n="app.box.fk.position"></th>
+                      <th data-i18n="app.box.fk.number"></th>
+                      <th data-i18n="app.box.fk.label"></th>
+                    </thead>
+                    <tbody>
+                      <td><input type="text" name="key" id="positionfk"></input></td>
+                      <td><input type="text" name="exten" id="extenfk"></input></td>
+                      <td><input type="text" name="label" id="labelfk"></input></td>
+                    <tbody>
+                  </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-i18n="app.box.fk.add_fk_close"></button>
+                  <button type="button" class="btn btn-primary" id="savefk" data-i18n="app.box.fk.add_fk_save"></button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal" id="view-add-contact">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">Ã—</span></button>
+                  <h4 class="modal-title" data-i18n="app.box.contacts.add_contact"></h4>
+                </div>
+                <div class="form-horizontal">
+                  <div class="modal-body">
+
+                  <div class=" form-group ">
+                    <label class="col-sm-4 control-label" for="firstname">
+                      <abbr title="Required" data-i18n="app.box.contacts.firstname"></abbr>
+                    </label>
+                    <div class="col-sm-8">
+                      <input id="firstname" class="required form-control" name="firstname" data-i18n="[placeholder]app.box.contacts.firstname" type="text">
+                    </div>
+                  </div>
+                  <div class=" form-group ">
+                    <label class="col-sm-4 control-label" for="lastname" data-i18n="app.box.contacts.lastname"></label>
+                    <div class="col-sm-8">
+                      <input id="lastname" class="form-control" name="lastname" data-i18n="[placeholder]app.box.contacts.lastname" type="text">
+                    </div>
+                  </div>
+                  <div class="form-group ">
+                    <label class="col-sm-4 control-label" for="phonenumber">
+                      <abbr title="Required" data-i18n="app.box.contacts.number"></abbr>
+                    </label>
+                    <div class="col-sm-8">
+                      <input id="phonenumber" class="required form-control" name="phonenumber" data-i18n="[placeholder]app.box.contacts.number" type="text">
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-i18n="app.box.contacts.add_contact_close"></button>
+                  <button type="button" id="post-contact" class="btn btn-primary pull-right" data-i18n="app.box.contacts.add_contact_save"></button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+    </div>
+
+    <div class='clearfix'></div>
+
+    <footer class="main-footer">
+      <div class="pull-right hidden-xs">
+        <span data-i18n="app.footer.baseline"></span>
+      </div>
+      <strong data-i18n="[html]app.footer.copyright"></strong> <span data-i18n="app.footer.rights"></span>
+    </footer>
+
+    <aside class="control-sidebar control-sidebar-dark">
+      <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+        <li class="active">
+          <a href="#control-sidebar-options-tab" data-toggle="tab" aria-expanded="true">
+            <i class="fa fa-wrench"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#control-sidebar-settings-tab" data-toggle="tab" aria-expanded="true">
+            <i class="fa fa-gears"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#control-sidebar-user-settings-tab" data-toggle="tab" aria-expanded="true">
+            <i class="fa fa-user"></i>
+          </a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="control-sidebar-options-tab" class="tab-pane active">
+          <h3 class="control-sidebar-heading" data-i18n="app.sidebar.phone_settings.title"></h3>
+          <div class="form-group">
+            <label class="control-sidebar-subheading" data-i18n="[append]app.sidebar.phone_settings.donotdisturb">
+              <input class="pull-right" id="dnd" name="dnd" type="checkbox">
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="uforward" data-i18n="app.sidebar.phone_settings.unconditional_forward"></label>
+            <input id="uforward" class="form-control" name="uforward" data-i18n="[placeholder]app.sidebar.phone_settings.enter_number" type="text">
+          </div>
+          <div class="form-group">
+            <label for="noforward" data-i18n="app.sidebar.phone_settings.no_answer_forward"></label>
+            <input class="form-control" id="naforward" name="naforward" data-i18n="[placeholder]app.sidebar.phone_settings.enter_number" type="text">
+          </div>
+          <div class="form-group">
+            <label for="busyforward" data-i18n="app.sidebar.phone_settings.busy_forward"></label>
+            <input class="form-control" id="busyforward" name="busyforward" data-i18n="[placeholder]app.sidebar.phone_settings.enter_number" type="text">
+          </div>
+        </div>
+        <div id="control-sidebar-settings-tab" class="tab-pane">
+          <h3 class="control-sidebar-heading" data-i18n="app.sidebar.call_logs_settings.title"></h3>
+          <div class="form-group">
+            <label for="callloghistorysize" data-i18n="app.sidebar.call_logs_settings.history_size"></label>
+            <input id="callloghistorysize" class="form-control" name="callloghistorysize" value="15" type="text">
+          </div>
+          <div class="form-group">
+            <label class="control-sidebar-subheading" data-i18n="[append]app.sidebar.call_logs_settings.history_delete">
+              <a class="text-red pull-right" id="clean-calllogs">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </label>
+          </div>
+          <h3 class="control-sidebar-heading" data-i18n="app.sidebar.chat_settings.title"></h3>
+          <div class="form-group">
+            <label for="chathistorysize" data-i18n="app.sidebar.chat_settings.history_size"></label>
+            <input id="chathistorysize" class="form-control" name="chathistorysize" value="30" type="text">
+          </div>
+          <div class="form-group">
+            <label class="control-sidebar-subheading" data-i18n="[append]app.sidebar.chat_settings.history_delete">
+              <a class="text-red pull-right" id="clean-chat-history">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </label>
+            <p data-i18n="app.sidebar.chat_settings.history_warning"></p>
+          </div>
+          <div class="form-group">
+            <h3 class="control-sidebar-heading" data-i18n="app.sidebar.status.title"></h3>
+            <ul>
+              <li id="websocketstatus"><span>Websocket <i class="fa fa-bolt"></i></span></li>
+              <li id="webrtcstatus"><span>WebRTC <i class="fa fa-bolt"></i></span></li>
+            </ul>
+          </div>
+        </div>
+        <div id="control-sidebar-user-settings-tab" class="tab-pane">
+          <h3 class="control-sidebar-heading" data-i18n="app.sidebar.user_settings.title"></h3>
+          <div class="form-group">
+            <label for="user-password" data-i18n="app.sidebar.user_settings.password">Password</label>
+            <input id="user-password" class="form-control" name="user-password" type="password">
+            <p data-i18n="app.sidebar.user_settings.password_info"></p>
+          </div>
+          <div class="form-group">
+            <label for="user-mobile" data-i18n="app.sidebar.user_settings.mobile"></label>
+            <input id="user-mobile" class="form-control" name="user-mobile" type="text">
+            <p data-i18n="app.sidebar.user_settings.mobile_info"></p>
+          </div>
+          <div class="form-group">
+            <label for="user-email" data-i18n="app.sidebar.user_settings.email"></label>
+            <input id="user-email" class="form-control" name="user-email" type="text">
+            <p data-i18n="app.sidebar.user_settings.email_info"></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="control-sidebar-bg"></div>
+
+  </div>
+
+  <script src='js/assets/adminlte.min.js'></script>
+
+</script>

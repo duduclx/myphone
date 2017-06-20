@@ -1,0 +1,91 @@
+<script id="login_template" type="x-tmpl-mustache">
+  <div class="login-box">
+    <div class="login-box-body">
+      <h3 class="login-box-msg">UNICOM</h3>
+      <hr>
+      <form action="/login" method="post" name="login_user_form">
+        <div class="form-group authenticate">
+          <div class="form-group has-feedback">
+            <span class="form-control-feedback glyphicon glyphicon-user"></span>
+            <input class="form-control" id="username" name="username" data-i18n="[placeholder]auth.enter_username" type="text" required>
+          </div>
+        </div>
+        <div class=" form-group  ">
+          <div class="form-group has-feedback">
+            <span class="form-control-feedback glyphicon glyphicon-lock"></span>
+            <input class="form-control" id="password" name="password" data-i18n="[placeholder]auth.enter_password" type="password" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 col-xs-offset-8">
+          <input class="btn btn-primary pull-right" id="signin" name="submit" type="submit" data-i18n="[value]auth.login">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="box-footer text-center">
+      <div id="error" class="alert alert-danger hidden" role="alert"></div>
+      <div>
+        <small data-i18n="[html]auth.powered"></small>
+      </div>
+    </div>
+    <div id="configuration"></div>
+  </div>
+
+  <div class="modal" id="view-configuration">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title" data-i18n="configuration.title"></h4>
+        </div>
+        <div class="form-horizontal">
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="col-sm-4 control-label" for="server">
+                <abbr title="Required" data-i18n="configuration.server"></abbr>
+              </label>
+              <div class="col-sm-8">
+                <input id="server" class="required form-control" name="server" data-i18n="[placeholder]configuration.server" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label" for="port" data-i18n="configuration.port"></label>
+              <div class="col-sm-8">
+                <input id="port" class="form-control" name="port" data-i18n="[placeholder]configuration.port" type="text">
+              </div>
+            </div>
+            <h4 class="modal-title" data-i18n="configuration.advanced"></h4>
+            <hr>
+            <div class="form-group">
+              <label class="col-sm-4 control-label" for="backend" data-i18n="configuration.backend"></label>
+              <div class="col-sm-8">
+                <input id="backend" class="form-control" name="backend" data-i18n="[placeholder]configuration.backend" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label" for="agent_extension" data-i18n="configuration.agent_extension"></label>
+              <div class="col-sm-8">
+                <input id="agent_extension" class="form-control" name="agent_extension" data-i18n="[placeholder]configuration.agent_extension" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label" for="debug" data-i18n="debug.configuration"></label>
+              <div class="col-sm-8">
+                <input id="debug" class="checkbox" name="debug" type="checkbox">
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-i18n="configuration.close"></button>
+            <button type="button" id="post-configuration" class="btn btn-primary pull-right" data-i18n="configuration.save"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</script>
