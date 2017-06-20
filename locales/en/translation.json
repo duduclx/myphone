@@ -1,0 +1,163 @@
+{
+  "auth": {
+    "login": "Login",
+    "enter_username": "Enter your Login",
+    "enter_password": "Enter your Password",
+    "powered": "Powered by <a href=\"http://wazo.community\">Wazo</a>"
+  },
+  "configuration": {
+    "title": "Application configuration",
+    "advanced": "Advanced Configuration",
+    "server": "Server",
+    "port": "Port",
+    "backend": "Backend",
+    "agent_extension": "Agent extension",
+    "save": "Save",
+    "close": "Close"
+  },
+  "debug": {
+    "title": "Console LOG",
+    "configuration": "Activate DEBUG"
+  },
+  "app": {
+    "warning_upgrade_title": "Your Wazo version is too old!",
+    "warning_upgrade": "Please upgrade to the latest Wazo version. The latest version is {{version}}. Ask to your administrator for more informations.",
+    "welcome": {
+      "title": "Welcome to unicom!",
+      "message": "Hello, thank for using unicom. Please, if you have time send us your feedback about unicom, we are very happy to get your feedback. The Wazo team. http://projects.wazo.community"
+    },
+    "presence": {
+      "donotdisturb": "Do not disturb",
+      "available": "Available",
+      "disconnected": "Disconnected"
+    },
+    "agent": {
+      "pause": "Pause",
+      "unpause": "Unpause",
+      "login": "Login",
+      "logoff": "Logoff"
+    },
+    "profile": {
+      "visit": "Visit wazo.community",
+      "logout": "Sign out",
+      "session_expires": "Session expires in"
+    },
+    "notifications": {
+      "have_notification": "You have {{count}} notification",
+      "have_notification_plural": "You have {{count}} notifications"
+    },
+    "user": {
+      "myline": "MY LINES",
+      "favorites": "FAVORITES",
+      "call": "Call"
+    },
+    "header": {
+      "status": "Your status"
+    },
+    "footer": {
+      "copyright": "Copyright &copy; 2017 <a href=\"http://www.twitter.com/quintana_\">Sylvain Boily</a>.",
+      "rights": "All rights reserved.",
+      "baseline": "Communication made simple"
+    },
+    "box": {
+      "calllogs": {
+        "title": "Call Logs",
+        "clid": "CLID",
+        "date": "Date",
+        "hour": "Time",
+        "duration": "Duration"
+      },
+      "phone": {
+        "enter_number": "Enter number...",
+        "incoming_call": "Incoming call",
+        "on_call": "On call...",
+        "calling": "Calling...",
+        "atxfer": "Atx Transfer",
+        "number_transfer": "Please enter the number to transfer"
+      },
+      "contacts": {
+        "title": "Contacts",
+        "name": "Name",
+        "number": "Number",
+        "actions": "Actions",
+        "search": "Search...",
+        "add_contact": "Add new contact",
+        "add_contact_close": "Close",
+        "add_contact_save": "Add new contact",
+        "firstname": "Firstname",
+        "lastname": "Lastname",
+        "number": "Number"
+      },
+      "direct_chat": {
+        "title": "Direct Chat",
+        "talking_with": "talking with",
+        "type_message": "Type a message...",
+        "send": "Send"
+      },
+      "voicemails": {
+        "title": "Voicemails",
+        "date": "Date",
+        "time": "Time",
+        "clid": "CLID",
+        "duration": "Duration",
+        "actions": "Actions"
+      },
+      "fk": {
+        "title": "Functions Keys",
+        "key": "Key",
+        "type": "Type",
+        "destination": "Destination",
+        "label": "Label",
+        "actions": "Actions",
+        "add_fk": "Add function key",
+        "add_fk_note": "Please note only custom function keys is supported for the moment...",
+        "add_fk_close": "Close",
+        "add_fk_save": "Save changes",
+        "position": "Position",
+        "number": "Number",
+        "label": "Label",
+        "supervised": "Supervised"
+      },
+      "lines": {
+        "message": "Please select your line, by default main line is selected!",
+        "choose": "Choose a line...",
+        "line": "line",
+        "confirm": "OK",
+        "cancel": "Cancel"
+      }
+    },
+    "sidebar": {
+      "phone_settings": {
+        "title": "Phone Settings",
+        "donotdisturb" : "Do not disturb",
+        "unconditional_forward": "Unconditional forward",
+        "no_answer_forward": "No answer forward",
+        "busy_forward": "Busy forward",
+        "enter_number": "Enter a number..."
+      },
+      "call_logs_settings": {
+        "title": "Call Logs Settings",
+        "history_size": "History size",
+        "history_delete": "Delete call logs history"
+      },
+      "chat_settings": {
+        "title": "Chat Settings",
+        "history_size": "History size",
+        "history_delete": "Delete chat history",
+        "history_warning": "Warning, you loose all of your historic!"
+      },
+      "status": {
+        "title": "Connection Status"
+      },
+      "user_settings": {
+        "title": "User Settings",
+        "password": "Password",
+        "password_info": "You can change your password here",
+        "mobile": "Mobile",
+        "mobile_info": "Configure your mobile number",
+        "email": "Email",
+        "email_info": "You can change your email gravatar"
+      }
+    }
+  }
+}

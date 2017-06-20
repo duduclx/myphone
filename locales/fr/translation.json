@@ -1,0 +1,163 @@
+﻿{
+  "auth": {
+    "login": "Connexion",
+    "enter_username": "Entrer votre Identifiant",
+    "enter_password": "Entrer votre mot de passe",
+    "powered": "Propulsé par <a href=\"http://wazo.community\">Wazo</a>"
+  },
+  "configuration": {
+    "title": "Configuration de l'application",
+    "advanced": "Configuration avancées",
+    "server": "Serveur",
+    "port": "Port",
+    "backend": "Backend",
+    "agent_extension": "Extension de l'agent",
+    "save": "Sauver",
+    "close": "Fermer"
+  },
+  "debug": {
+    "title": "Console LOG",
+    "configuration": "Activation du DEBUG"
+  },
+  "app": {
+    "warning_upgrade_title": "Votre version de Wazo est ancienne !",
+    "warning_upgrade": "Merci de mettre à jour votre Wazo avec une version plus à jour. La dernière version est {{version}}. Renseignez-vous auprès de votre administrateur pour plus d'informations.",
+    "welcome": {
+      "title": "Bienvenue sur unicom !",
+      "message": "Bonjour, merci d'utiliser unicom. Si vous avez quelques minutes, nous serions ravi d'avoir votre retour d'utilisation sur unicom. L'équipe Wazo team. http://projects.wazo.community"
+    },
+    "presence": {
+      "donotdisturb": "Ne pas déranger",
+      "available": "Disponible",
+      "disconnected": "Déconnecté"
+    },
+    "agent": {
+      "pause": "Retrait",
+      "unpause": "Prêt",
+      "login": "Connexion",
+      "logoff": "Déconnexion"
+    },
+    "profile": {
+      "visit": "Ouvrir wazo.community",
+      "logout": "Sortir",
+      "session_expires": "Votre session expire dans"
+    },
+    "notifications": {
+      "have_notification": "Vous avez {{count}} notification",
+      "have_notification_plural": "Vous avez {{count}} notifications"
+    },
+    "user": {
+      "myline": "MES LIGNES",
+      "favorites": "FAVORIS",
+      "call": "Appeler"
+    },
+    "header": {
+      "status": "Votre présence"
+    },
+    "footer": {
+      "copyright": "Copyright &copy; 2017 <a href=\"http://www.twitter.com/quintana_\">Sylvain Boily</a>.",
+      "rights": "Tous droits réservés.",
+      "baseline": "Communication made simple"
+    },
+    "box": {
+      "calllogs": {
+        "title": "Journaux d'appels",
+        "clid": "Appelant",
+        "date": "Date",
+        "hour": "Heure",
+        "duration": "Durée"
+      },
+      "phone": {
+        "enter_number": "Entrer un numéro ...",
+        "incoming_call": "Appel entrant",
+        "on_call": "En ligne ...",
+        "calling": "Appel en cours ...",
+        "atxfer": "Transfert indirecte",
+        "number_transfer": "Numéro pour le transfert"
+      },
+      "contacts": {
+        "title": "Répertoire",
+        "name": "Nom",
+        "number": "Numéro",
+        "actions": "Actions",
+        "search": "Chercher ...",
+        "add_contact": "Ajouter un nouveau contact",
+        "add_contact_close": "Fermer",
+        "add_contact_save": "Ajouter le contact",
+        "firstname": "Prénom",
+        "lastname": "Nom de famille",
+        "number": "Numéro"
+      },
+      "direct_chat": {
+        "title": "Conversation",
+        "talking_with": "parle avec",
+        "type_message": "Envoyer un message ...",
+        "send": "Envoyer"
+      },
+      "voicemails": {
+        "title": "Messagerie vocale",
+        "date": "Date",
+        "time": "Heure",
+        "clid": "Appelant",
+        "duration": "Durée",
+        "actions": "Actions"
+      },
+      "fk": {
+        "title": "Touche de fonctions",
+        "key": "Touche",
+        "type": "Type",
+        "destination": "Destination",
+        "label": "Label",
+        "actions": "Actions",
+        "add_fk": "Ajouter une touche de fonction",
+        "add_fk_note": "Merci de prendre note que seulement les touches personnalisées sont supportées actuellement ...",
+        "add_fk_close": "Fermer",
+        "add_fk_save": "Sauvegarder",
+        "position": "Position",
+        "number": "Numéro",
+        "label": "Label",
+        "supervised": "Supervisé"
+      },
+      "lines": {
+        "message": "Merci de sélectionner votre ligne, par défault la ligne principale sera utilisée !",
+        "choose": "Choisir une ligne ...",
+        "line": "ligne",
+        "confirm": "OK",
+        "cancel": "Annuler"
+      }
+    },
+    "sidebar": {
+      "phone_settings": {
+        "title": "Configuration Téléphone",
+        "donotdisturb" : "Ne pas déranger",
+        "unconditional_forward": "Renvoi inconditionnel",
+        "no_answer_forward": "Renvoi sur non réponse",
+        "busy_forward": "Renvoi sur occupation",
+        "enter_number": "Entrer un numéro ..."
+      },
+      "call_logs_settings": {
+        "title": "Configuration Journaux d'Appels",
+        "history_size": "Taille de l'historique",
+        "history_delete": "Supprimer l'historique des appels"
+      },
+      "chat_settings": {
+        "title": "Configuration Chat",
+        "history_size": "Taille de l'historique",
+        "history_delete": "Supprimer l'historique du chat",
+        "history_warning": "Attention, vous allez perdre tout votre historique !"
+      },
+      "status": {
+        "title": "Statut de la Connexion"
+      },
+      "user_settings": {
+        "title": "Configuration Utilisateur",
+        "password": "Mot de passe",
+        "password_info": "Vous pouvez changer votre mot de passe ici",
+        "mobile": "Téléphone mobile",
+        "mobile_info": "Configurer votre numéro de mobile",
+        "email": "Adresse couriel",
+        "email_info": "Vous pouvez changer votre email pour avoir votre gravatar"
+      }
+    }
+  }
+}

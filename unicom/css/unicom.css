@@ -1,0 +1,53 @@
+.backstretch {
+    filter: brightness(30%);
+    -webkit-filter: brightness(30%);
+    -moz-filter: brightness(30%);
+    -ms-filter: brightness(30%);
+    -o-filter: brightness(30%);
+}
+
+div#phoneaction {
+    height: 26px;
+}
+
+div#phoneactionvolume {
+    padding-top: 20px;
+}
+
+div#phonecompose {
+    padding-top: 30px;
+}
+
+div#phone button {
+    border: 0px;
+}
+
+@keyframes fa-blink {
+     30% { opacity: 2; }
+     70% { opacity: 1; }
+     100% { opacity: 0; }
+ }
+
+.fa-blink {
+   -webkit-animation: fa-blink 2s linear infinite;
+   -moz-animation: fa-blink 2s linear infinite;
+   -ms-animation: fa-blink 2s linear infinite;
+   -o-animation: fa-blink 2s linear infinite;
+   animation: fa-blink 2s linear infinite;
+}
+
+.slider.slider-horizontal {
+  width: 100%;
+}
+
+.material-icons.md-18 { font-size: 18px; }
+
+.logo-full-svg {
+  max-width: 130px;
+  max-height: 34px;
+}
+
+.logo-bird-svg {
+  max-width: 32px;
+  max-height: 27px;
+}
