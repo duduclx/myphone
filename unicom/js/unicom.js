@@ -139,7 +139,7 @@ ctxStorage = {
         localStorage.removeItem("calllog");
     },
     removeChatHistory: function() {
-        localStorage.remoeeItem("chatlog");
+        localStorage.removeItem("chatlog");
     },
     getItem: function(item) {
         return localStorage.getItem(item);
